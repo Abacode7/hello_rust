@@ -137,6 +137,38 @@ fn main() {
         surfer.height, surfer.weight, surfer.max_wave_height, surfer.board_name);
     println!();
 
+    // Enum Types
+    let mut balance: u32 = 50;
+    println!("Initial balance: {}", balance);
+    pay(&mut balance, 0);
+    pay(&mut balance, 100);
+    deposit(&mut balance, 0);
+    deposit(&mut balance, 50);
+    pay(&mut balance, 100);
+    println!("Final balance: {}", balance);
+    println!();
+
+    // Control Flow
+    // If Structure
+    // FizzBuzz problem - If a number is divisible by 3, write Fizz
+    // If a number is divisible by 5, write Buzz
+    // If a number is divisible by 3 and 5, write FizzBuzz, for 1 to the input
+    println!("Fizz Buzz for input {}: ", 15);
+    fizz_buzz(15);
+    println!();
+
+    println!("Fizz Buzz for input {}: ", 10);
+    fizz_buzz(10);
+    println!();
+
+    println!("Fizz Buzz for input {}: ", 9);
+    fizz_buzz(9);
+    println!();
+
+    println!("Fizz Buzz for input {}: ", 8);
+    fizz_buzz(8);
+    println!();
+
 }
 
 fn get_date(date: String) -> (u32, u32, u32, String){
@@ -172,5 +204,50 @@ impl Surfer {
 
     fn change_board_name(&mut self, new_board_name: String){
         self.board_name = new_board_name;
+    }
+}
+
+#[derive(Debug)]
+enum Errors {
+    InvalidAmount,
+    NotEnoughFunds,
+
+}
+
+fn deposit(balance: &mut u32, amount: u32){
+    if amount <= 0 {
+        println!("{:?}", Errors::InvalidAmount);
+        return;
+    }
+
+    *balance += amount;
+}
+
+fn pay(balance: &mut u32, amount: u32){
+    if amount == 0 {
+        println!("{:?}", Errors::InvalidAmount);
+        return;
+    }
+
+    if amount > *balance {
+        println!("{:?}", Errors::NotEnoughFunds);
+        return;
+    }
+
+    *balance -= amount;
+}
+
+
+fn fizz_buzz(input: u32) {
+    for i in 1..input+1{
+        if i % 15 == 0 {
+            println!("FizzBuzz");
+        }else if i % 3 == 0 {
+            println!("Fizz");
+        }else if i % 5 == 0 {
+            println!("Buzz");
+        }else {
+            println!("{}", i);
+        }
     }
 }
