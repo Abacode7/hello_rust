@@ -1,5 +1,5 @@
 fn main() {
-    println!("Hello, world!");
+    println!("Hello, Rust!");
     println!();
 
     // Rust Data Types
