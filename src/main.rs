@@ -114,6 +114,29 @@ fn main() {
             }
         }
     }
+    println!();
+
+    // Struct User Defined Type
+    let mut surfer = Surfer {
+        height: 6,
+        weight: 75,
+        max_wave_height: 0,
+        board_name: String::from("Small shark!")
+    };
+
+    surfer.say_aloha();
+    println!(
+        "Pre Surfing: Height: {}; Weight: {}; Wave Height: {}, Board Name: {}",
+        surfer.height, surfer.weight, surfer.max_wave_height, surfer.board_name);
+    
+    surfer.ride_wave(10);
+    surfer.change_board_name(String::from("Big shark!"));
+
+    println!(
+        "Post Surfing: Height: {}; Weight: {}; Wave Height: {}, Board Name: {}",
+        surfer.height, surfer.weight, surfer.max_wave_height, surfer.board_name);
+    println!();
+
 }
 
 fn get_date(date: String) -> (u32, u32, u32, String){
@@ -123,4 +146,31 @@ fn get_date(date: String) -> (u32, u32, u32, String){
     let timezone = String::from(&date[9..]);
 
     (day, month, year, timezone)
+}
+
+
+struct Surfer {
+    pub height: u32,
+    pub weight: u32,
+    pub max_wave_height: u32,
+    pub board_name: String,
+}
+
+impl Surfer {
+    fn say_aloha(&self){
+        println!("Alahoa!!")
+    }
+
+    fn ride_wave(&mut self, wave_height: u32){
+        if wave_height > self.max_wave_height{
+            self.max_wave_height = wave_height;
+            println!("Yoohoo...new wave height record set");
+        }else {
+            println!("Awesome!...always a pleasure");
+        }
+    }
+
+    fn change_board_name(&mut self, new_board_name: String){
+        self.board_name = new_board_name;
+    }
 }
