@@ -1,4 +1,4 @@
-use std::{collections::{HashMap, HashSet}, vec};
+use std::{collections::{HashMap, HashSet}, ops::Add, vec};
 
 fn main() {
     println!("Hello, Rust!");
@@ -299,6 +299,25 @@ fn main() {
     println!("Addition: {}", add(10, 20));
     print!("Power: {}", pow(2));
     println!();
+
+
+    // Generics and Traits
+    fn max<T: PartialOrd>(a: T, b: T) -> T {
+        if a > b {
+            a
+        }else {
+            b
+        }
+    }
+
+    println!("Max of 10 and 20: {}", max(10, 20));
+    println!();
+
+    fn addition<T: Add<Output = T>>(a: T, b: T) -> T {
+        a + b
+    }
+    println!("Addition of 10 and 20: {}", addition(10, 20));
+    println!()
 
 }
 
