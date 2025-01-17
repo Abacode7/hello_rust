@@ -1,3 +1,5 @@
+use std::{collections::{HashMap, HashSet}, vec};
+
 fn main() {
     println!("Hello, Rust!");
     println!();
@@ -12,6 +14,7 @@ fn main() {
     println!("Integer addition i + j => {}", i + j);
     println!();
 
+
     // Character and String
     // Character store a single character in a string,
     // while Strings store words
@@ -22,6 +25,7 @@ fn main() {
     println!("Character and string values inputChar, inputString1 and inputString2 => {}, {}, {}", input_char, input_string1, input_string2);
     println!();
 
+
     // Boolean
     // Bolean values could be true or false
     let a: bool = true;
@@ -29,6 +33,8 @@ fn main() {
 
     println!("Boolean variables a => {} and b => {}", a, b);
     println!();
+
+
 
     // Rust Data Operations
     println!("Logical AND: a & b => {}", a & b);
@@ -38,6 +44,8 @@ fn main() {
     println!("Equality: a == b => {}", a == b);
     println!("Comparison: a > b => {}", a > b);
     println!();
+
+
 
     // Sequence Data Types
     // Tuples
@@ -64,6 +72,7 @@ fn main() {
         println!("Element: {}", value)
     }
     println!();
+
 
 
     // Loops
@@ -116,6 +125,8 @@ fn main() {
     }
     println!();
 
+
+
     // Struct User Defined Type
     let mut surfer = Surfer {
         height: 6,
@@ -137,6 +148,8 @@ fn main() {
         surfer.height, surfer.weight, surfer.max_wave_height, surfer.board_name);
     println!();
 
+
+
     // Enum Types
     let mut balance: u32 = 50;
     println!("Initial balance: {}", balance);
@@ -147,6 +160,8 @@ fn main() {
     pay(&mut balance, 100);
     println!("Final balance: {}", balance);
     println!();
+
+
 
     // Control Flow
     // If Structure
@@ -169,6 +184,70 @@ fn main() {
     fizz_buzz(8);
     println!();
 
+    
+    
+    // Advanced Rust Concept
+    // Vectors
+    let _vec_1: Vec<u32> = Vec::new();
+    let mut vec_2 = vec![1, 2, 3, 4, 5];
+
+    vec_2.push(6);
+    for element in vec_2.iter(){
+        println!("Element: {}", element);
+    }
+
+    let popped_element = vec_2.pop().unwrap();
+    println!("Popped Element: {}", popped_element);
+    println!("New Length: {}", vec_2.len());
+    println!();
+
+
+    
+    // Sets
+    let mut set: HashSet<u32> = HashSet::new();
+    set.insert(1);
+    set.insert(2);
+    set.insert(3);
+    set.insert(4);
+    set.insert(5);
+
+    set.insert(1);
+    for element in set.iter(){
+        println!("Element: {}", element);
+    }
+    println!();
+
+    set.remove(&1);
+    let contains = set.contains(&1);
+    println!("Contains 1: {}", contains);
+    println!();
+
+    
+    // Hash Maps
+    let mut map: HashMap<u32, String> = HashMap::new();
+    map.insert(1, String::from("One"));
+    map.insert(2, String::from("Two"));
+    map.insert(3, String::from("Three"));
+
+    for (key, value) in map.iter(){
+        println!("Key: {} and Value: {}", key, value);
+    }
+    println!();
+    
+    for key in map.keys(){
+        println!("Key: {}", key);
+    }
+    println!();
+
+    for value in map.values(){
+        println!("Value: {}", value);
+    }
+    println!();
+
+    let value = map.get(&1).unwrap();
+    println!("Value for key 1: {}", value);
+    println!();
+    
 }
 
 fn get_date(date: String) -> (u32, u32, u32, String){
