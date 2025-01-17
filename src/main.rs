@@ -1,5 +1,16 @@
 use std::{collections::{HashMap, HashSet}, ops::Add, vec};
 
+
+macro_rules! my_vec {
+    ($($x:expr),*) => {
+        {
+            let mut temp_vec = Vec::new();
+            $(temp_vec.push($x);)*
+            temp_vec
+        }
+    };
+}
+
 fn main() {
     println!("Hello, Rust!");
     println!();
@@ -317,7 +328,16 @@ fn main() {
         a + b
     }
     println!("Addition of 10 and 20: {}", addition(10, 20));
-    println!()
+    println!();
+
+
+    // Macros
+    println!("Macros!");
+    let new_vec = my_vec![1, 2, 3, 4, 5];
+    for element in new_vec.iter(){
+        println!("Element: {}", element);
+    }
+    println!();
 
 }
 
