@@ -289,7 +289,17 @@ fn main() {
         Ok(result) => println!("Result: {}", result),
         Err(error) => println!("Error: {}", error)
     }
-    println!()
+    println!();
+
+
+    // Closures
+    let add = |a: i32, b: i32| -> i32 {a + b};
+    let base: u32 = 10;
+    let pow = |exp: u32| -> u32 {base.pow(exp as u32)};
+    println!("Addition: {}", add(10, 20));
+    print!("Power: {}", pow(2));
+    println!();
+
 }
 
 fn get_date(date: String) -> (u32, u32, u32, String){
