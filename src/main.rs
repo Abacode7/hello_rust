@@ -247,7 +247,49 @@ fn main() {
     let value = map.get(&1).unwrap();
     println!("Value for key 1: {}", value);
     println!();
+
+    // Pattern Matching
+    // Pattern matching in Tuples
+    let tuple = (1, 2, 3);
+    match tuple {
+        (x, y, 3) => {
+            println!("x: {}, y: {}", x, y);
+        },
+        _ => println!("No match")
+    }
+
+    // Pattern matching in Arrays
+    let array = [1, 2, 3, 4, 5  ];
+    match &array[..]{
+        [first, second, rest @ ..] => {
+            println!("First: {}, Second: {}, Rest: {:?}", first, second, rest);
+        },
+        _ => println!("No match")
+    }
+
+    // Pattern matching in Functions
+    let arr = [1, 2, 3, 4, 5];
+    match find_element(&arr, 2){
+        Some(index) => println!("Element found at index: {}", index),
+        None => println!("Element not found")
+    }
+
+    match find_element(&arr, 10){
+        Some(index) => println!("Element found at index: {}", index),
+        None => println!("Element not found")
+    }
+    println!();
+
+    match divide(10, 2){
+        Ok(result) => println!("Result: {}", result),
+        Err(error) => println!("Error: {}", error)
+    }
     
+    match divide(10, 0){
+        Ok(result) => println!("Result: {}", result),
+        Err(error) => println!("Error: {}", error)
+    }
+    println!()
 }
 
 fn get_date(date: String) -> (u32, u32, u32, String){
@@ -328,5 +370,24 @@ fn fizz_buzz(input: u32) {
         }else {
             println!("{}", i);
         }
+    }
+}
+
+fn find_element(array: &[i32], element: i32) -> Option<usize>{
+    for (index, value) in array.iter().enumerate(){
+        if *value == element {
+            return Some(index);
+        }
+    }
+
+    None
+}
+
+
+fn divide(a: i32, b: i32) -> Result<i32, String> {
+    if b == 0 {
+        Err("Cannot divide by zero".to_string())
+    }else {
+        Ok(a / b)
     }
 }
