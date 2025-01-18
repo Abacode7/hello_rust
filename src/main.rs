@@ -60,6 +60,7 @@ fn main() {
 
     // Sequence Data Types
     // Tuples
+    println!("TUPLES!");
     let date = get_date(String::from("12/03/11 GMT+1"));
 
     let (day, month, year, timezone) = date.clone();
@@ -73,6 +74,7 @@ fn main() {
 
 
     // Arrays
+    println!("ARRAYS!");
     let num_array = [10, 9, 8, 7, 6];
 
     for i in 0..num_array.len(){
@@ -88,6 +90,7 @@ fn main() {
 
     // Loops
     // For Loop
+    println!("FOR LOOP!");
     let matrix = [[5, 10, 15], [20, 25, 30]];
 
     let rows = matrix.len();
@@ -101,6 +104,7 @@ fn main() {
     println!();
 
     // While loop
+    println!("WHILE LOOP!");
     let mut row = 0;
     let mut col;
 
@@ -117,6 +121,7 @@ fn main() {
 
     
     // Loop loop
+    println!("LOOPS LOOP!");
     let mut row_index = 0;
     let mut col_index = 0;
 
@@ -139,6 +144,7 @@ fn main() {
 
 
     // Struct User Defined Type
+    println!("STRUCTS!");
     let mut surfer = Surfer {
         height: 6,
         weight: 75,
@@ -162,6 +168,7 @@ fn main() {
 
 
     // Enum Types
+    println!("ENUMS!");
     let mut balance: u32 = 50;
     println!("Initial balance: {}", balance);
     pay(&mut balance, 0);
@@ -179,6 +186,7 @@ fn main() {
     // FizzBuzz problem - If a number is divisible by 3, write Fizz
     // If a number is divisible by 5, write Buzz
     // If a number is divisible by 3 and 5, write FizzBuzz, for 1 to the input
+    println!("CONTROL STRUCTURES!");
     println!("Fizz Buzz for input {}: ", 15);
     fizz_buzz(15);
     println!();
@@ -199,6 +207,7 @@ fn main() {
     
     // Advanced Rust Concept
     // Vectors
+    println!("VECTORS!");
     let _vec_1: Vec<u32> = Vec::new();
     let mut vec_2 = vec![1, 2, 3, 4, 5];
 
@@ -215,6 +224,7 @@ fn main() {
 
     
     // Sets
+    println!("SETS!");
     let mut set: HashSet<u32> = HashSet::new();
     set.insert(1);
     set.insert(2);
@@ -235,6 +245,7 @@ fn main() {
 
     
     // Hash Maps
+    println!("HASH MAPS!");
     let mut map: HashMap<u32, String> = HashMap::new();
     map.insert(1, String::from("One"));
     map.insert(2, String::from("Two"));
@@ -261,6 +272,7 @@ fn main() {
 
     // Pattern Matching
     // Pattern matching in Tuples
+    println!("TUPLES!");
     let tuple = (1, 2, 3);
     match tuple {
         (x, y, 3) => {
@@ -270,6 +282,7 @@ fn main() {
     }
 
     // Pattern matching in Arrays
+    println!("PATTERN MATCHING IN ARRAYS!");
     let array = [1, 2, 3, 4, 5  ];
     match &array[..]{
         [first, second, rest @ ..] => {
@@ -279,6 +292,7 @@ fn main() {
     }
 
     // Pattern matching in Functions
+    println!("PATTERN MATCHING IN FUNCTIONS!");
     let arr = [1, 2, 3, 4, 5];
     match find_element(&arr, 2){
         Some(index) => println!("Element found at index: {}", index),
@@ -304,15 +318,18 @@ fn main() {
 
 
     // Closures
+    println!("CLOSURES!");
     let add = |a: i32, b: i32| -> i32 {a + b};
     let base: u32 = 10;
     let pow = |exp: u32| -> u32 {base.pow(exp as u32)};
     println!("Addition: {}", add(10, 20));
     print!("Power: {}", pow(2));
     println!();
+    println!();
 
 
     // Generics and Traits
+    println!("GENERICS & TRAITS!");
     fn max<T: PartialOrd>(a: T, b: T) -> T {
         if a > b {
             a
@@ -332,7 +349,7 @@ fn main() {
 
 
     // Macros
-    println!("Macros!");
+    println!("MACROS!");
     let new_vec = my_vec![1, 2, 3, 4, 5];
     for element in new_vec.iter(){
         println!("Element: {}", element);
